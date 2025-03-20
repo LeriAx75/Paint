@@ -13,6 +13,7 @@ from turtle import *
 
 from freegames import vector
 
+import math
 
 def line(start, end):
     """Draw line from start to end."""
@@ -36,9 +37,20 @@ def square(start, end):
     end_fill()
 
 
-def circle(start, end):
+def draw_circle(start, end):
     """Draw circle from start to end."""
-    pass  # TODO
+   
+    up()
+    goto(start.x, start.y) #Puntos de inicio
+    down()
+    
+    #Calcular radio del circulo
+    r = math.sqrt(math.pow(end.x - start.x, 2) + math.pow(end.y - start.y, 2))
+
+    begin_fill()
+    #Dibujamos el circulo
+    circle(r)
+    end_fill()
 
 
 def rectangle(start, end):
@@ -79,9 +91,11 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+#Agregamos el color morado | Se tiene que presionar P en Mayusculas
+onkey(lambda: color('purple'), 'P')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
-onkey(lambda: store('shape', circle), 'c')
+onkey(lambda: store('shape', draw_circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
