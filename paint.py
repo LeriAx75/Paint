@@ -59,9 +59,12 @@ def rectangle(start, end):
     goto(start.x, start.y)
     down()
     begin_fill()
+    
+    """Se calculan las medidas del rectángulo"""
     width = abs(end.x - start.x)
     height = abs(end.y - start.y)
-
+    
+    """Se dibuja el rectángulo"""
     for count in range(2):
         forward(width)
         left(90)
@@ -77,9 +80,12 @@ def triangle(start, end):
     goto(start.x, start.y)
     down()
     begin_fill()
+    
+    """Se calculan las medidas del triángulo"""
     width = abs(end.x - start.x)
     height = abs(end.y - start.y)
-
+    
+    """Se dibuja el triángulo"""
     for count in range(3):
         forward(width)
         left(120)
